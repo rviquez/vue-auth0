@@ -1,38 +1,42 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+  <div id="app">
+    <nav-bar/>
+    <div class="container">
+      <error/>
+      <div class="mt-5">
+        <router-view/>
+      </div>
+    </div>
+    <footer>
+      <div class="logo"></div>
+      <p>
+        Sample project provided by
+        <a href="https://auth0.com">Auth0</a>
+      </p>
+    </footer>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import "jquery";
+import "samples-bootstrap-theme";
+import "samples-bootstrap-theme/dist/css/auth0-theme.css";
+
+import NavBar from "./components/NavBar";
+import Error from "./components/Error";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    NavBar,
+    Error
   },
-  data () {
-    return {
-      //
+  async created() {
+    try {
+      await this.$auth.renewTokens();
+    } catch {
+      // Supress the 'not logged in' error as we can illegitimately get that
+      // when processing the callback url
     }
   }
-}
+};
 </script>
