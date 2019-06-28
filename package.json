@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "vuetify": "^1.5.5"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.14",
@@ -29,13 +30,13 @@
     "popper.js": "^1.14.7",
     "samples-bootstrap-theme": "github:auth0-quickstarts/samples-bootstrap-theme",
     "sass-loader": "^7.1.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "vue": "^2.6.2",
+    "vue-cli-plugin-vuetify": "^0.5.0",
     "vue-router": "^3.0.2",
-    "vue-template-compiler": "^2.6.2"
-  },
-  "prettier": {
-    "singleQuote": false,
-    "semi": true
+    "vue-template-compiler": "^2.6.2",
+    "vuetify-loader": "^1.0.5"
   },
   "eslintConfig": {
     "root": true,
@@ -64,5 +65,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     }
+  },
+  "prettier": {
+    "singleQuote": false,
+    "semi": true
   }
 }
